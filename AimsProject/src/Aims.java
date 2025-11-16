@@ -1,17 +1,14 @@
-import models.Cart;
-import models.DigitalVideoDisc;
+
 import test.CartTest;
 import test.StoreTest;
-import models.Store;
-import models.Book;
-import models.BookAuthor;
 import test.BookTest;
+import test.CompactDiscTest;
 
 public class Aims {
     public static void main(String[] args) {
 
-        BookTest bookTest = new BookTest();
-        bookTest.main(args);
+        CompactDiscTest compactDiscTest = new CompactDiscTest();
+        compactDiscTest.main(args);
         // CartTest cartTest = new CartTest();
         // cartTest.main(args);
         
