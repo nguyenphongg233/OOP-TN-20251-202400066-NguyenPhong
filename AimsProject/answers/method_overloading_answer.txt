@@ -1,0 +1,9 @@
+- DigitalVideoDisc... discs được gọi là varargs (variable arguments). 
+Về bản chất, khi biên dịch, Java sẽ tự động coi varargs như một mảng (DigitalVideoDisc[]).
+
+Do đó, đối với trình biên dịch Java, hai chữ ký phương thức sau là hoàn toàn tương đương và gây ra xung đột :
+
+addDVD(DigitalVideoDisc[] discs)
+addDVD(DigitalVideoDisc... discs)
+
+-> xóa phương thức addDVD(DigitalVideoDisc... discs) để tránh xung đột.
