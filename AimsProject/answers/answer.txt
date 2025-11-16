@@ -1,0 +1,18 @@
+- Để tránh commit các file sinh ra trong quá trình build hoặc do IDE tạo tự động
+- Nếu không thêm gitignore thì repo sẽ chứa nhiều tập dữ liệu rác. 
+
+Sửa : 
+
+# Build output
+bin/
+out/
+target/
+build/
+*.class
+
+# IDE files
+.settings/
+.classpath
+.project
+.idea/
+*.iml
