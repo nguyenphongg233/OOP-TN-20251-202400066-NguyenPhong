@@ -3,15 +3,20 @@ import models.DigitalVideoDisc;
 import test.CartTest;
 import test.StoreTest;
 import models.Store;
+import models.Book;
+import models.BookAuthor;
+import test.BookTest;
 
 public class Aims {
     public static void main(String[] args) {
 
-        CartTest cartTest = new CartTest();
-        cartTest.main(args);
+        BookTest bookTest = new BookTest();
+        bookTest.main(args);
+        // CartTest cartTest = new CartTest();
+        // cartTest.main(args);
         
-        StoreTest storeTest = new StoreTest();
-        storeTest.main(args);
+        // StoreTest storeTest = new StoreTest();
+        // storeTest.main(args);
 
         // Cart cart = new Cart();
 
