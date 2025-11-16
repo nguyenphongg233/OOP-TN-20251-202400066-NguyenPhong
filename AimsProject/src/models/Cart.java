@@ -3,14 +3,14 @@ package models;
 public class Cart {
 	private static final int MAX_NUMBER_ORDERED = 20;
 	private DigitalVideoDisc[] itemsInCart = new DigitalVideoDisc[MAX_NUMBER_ORDERED];
-	private int qtyOrdered = 0;
+	private int qtyOrdered = 0; // number of items currently in cart, 0-based count
 	
 	public void addDVD(DigitalVideoDisc disc) {
 		if (qtyOrdered >= MAX_NUMBER_ORDERED){
 			System.out.print("The cart is almost full\n");
 			return;
 		}
-		itemsInCart[++qtyOrdered] = disc;
+		itemsInCart[qtyOrdered++] = disc;
 		System.out.print("The disc has been added sucessfully\n");
 	}
 	public void addDVD(DigitalVideoDisc[] dvdList) {
@@ -19,7 +19,7 @@ public class Cart {
 			return;
 		}
 		for(int i = 0;i < dvdList.length;i++) {
-			itemsInCart[++qtyOrdered] = dvdList[i];
+			itemsInCart[qtyOrdered++] = dvdList[i];
 		}
 		System.out.print("The discs have been added sucessfully\n");
 	}
@@ -28,8 +28,8 @@ public class Cart {
 			System.out.print("The cart is almost full\n");
 			return;
 		}
-		itemsInCart[++qtyOrdered] = dvd1;
-		itemsInCart[++qtyOrdered] = dvd2;
+		itemsInCart[qtyOrdered++] = dvd1;
+		itemsInCart[qtyOrdered++] = dvd2;
 		System.out.print("The discs have been added sucessfully\n");
 	}
 	public void removeDVD(DigitalVideoDisc disc) {
@@ -37,11 +37,11 @@ public class Cart {
 			System.out.print("The cart is empty\n");
 			return;
 		}
-		for(int i = 1;i <= qtyOrdered;i++) {
+		for(int i = 0; i < qtyOrdered; i++) {
 			if(disc == itemsInCart[i]) {
-				DigitalVideoDisc c = itemsInCart[i];
-				itemsInCart[i] = itemsInCart[qtyOrdered];
-				itemsInCart[qtyOrdered] = c;
+				// replace found item with last item and clear last slot
+				itemsInCart[i] = itemsInCart[qtyOrdered - 1];
+				itemsInCart[qtyOrdered - 1] = null;
 				qtyOrdered--;
 				System.out.print("The disc has been removed sucessfully\n");
 				return;
@@ -51,9 +51,11 @@ public class Cart {
 	}
 	public double calculateTotalCost() { 
         double totalCost = 0.0; 
-        for (int i = 1; i <= qtyOrdered; i++) {
-            totalCost += itemsInCart[i].getCost();
-        }
+		for (int i = 0; i < qtyOrdered; i++) {
+			if (itemsInCart[i] != null) {
+				totalCost += itemsInCart[i].getCost();
+			}
+		}
         return totalCost;
     }
 	public void print() { 
@@ -63,9 +65,10 @@ public class Cart {
 		}
 		System.out.println("***********************CART***********************");
 		System.out.println("Ordered Items (" + qtyOrdered + "):");
-		for (int i = 1; i <= qtyOrdered; i++) {
-			System.out.println("DVD[" + itemsInCart[i].getId() + "]" +". [Title]: " + itemsInCart[i].getTitle() + 
-							   ", [Cost]: " + itemsInCart[i].getCost() + " [Length]: " + itemsInCart[i].getLength() + " [Category]: " + itemsInCart[i].getCategory() + " [Director]: " + itemsInCart[i].getDirector());
+		for (int i = 0; i < qtyOrdered; i++) {
+			DigitalVideoDisc dvd = itemsInCart[i];
+			System.out.println("DVD[" + dvd.getId() + "]" +". [Title]: " + dvd.getTitle() + 
+							   ", [Cost]: " + dvd.getCost() + " [Length]: " + dvd.getLength() + " [Category]: " + dvd.getCategory() + " [Director]: " + dvd.getDirector());
 		}
 		System.out.println("Total cost: " + calculateTotalCost());
 		System.out.println("***************************************************");

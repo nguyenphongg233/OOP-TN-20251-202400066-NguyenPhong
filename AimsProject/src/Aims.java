@@ -1,28 +1,22 @@
 import models.Cart;
 import models.DigitalVideoDisc;
+import test.CartTest;
 
 public class Aims {
     public static void main(String[] args) {
 
+        CartTest cartTest = new CartTest();
+        cartTest.main(args);
+        
         Cart cart = new Cart();
 
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", 
-                                                    "Roger Allers", 87, 19.95);
-        
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", 
-                                                    "George Lucas", 87, 24.95);
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("Animation", "The Lion King", 19.95);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Science Fiction", "Star Wars", 24.95);
 
         cart.addDVD(dvd1);
         cart.addDVD(dvd2);
 
         cart.print();
-        
-        cart.calculateTotalCost();
-
-        cart.removeDVD(dvd2);
-
-        cart.print();
-        cart.calculateTotalCost();
     }
 }
 
