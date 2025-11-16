@@ -1,0 +1,25 @@
+# Build output
+bin/
+out/
+target/
+build/
+*.class
+
+# IDE files
+.settings/
+.classpath
+.project
+.idea/
+*.iml
+
+# VSCode workspace (thường user-specific)
+.vscode/
+# Nếu bạn muốn chia sẻ chỉ một số file VSCode (ví dụ recommended extensions), thay bằng:
+# .vscode/*
+# !.vscode/extensions.json
+# !.vscode/tasks.json   (nếu muốn chia sẻ task)
+# !.vscode/launch.json  (thường user-specific; cân nhắc)
+
+# OS
+.DS_Store
+Thumbs.db

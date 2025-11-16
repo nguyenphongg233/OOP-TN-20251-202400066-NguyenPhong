@@ -1,0 +1,1 @@
+Java luôn truyền tham trị nên muốn swap cần đổi value của từng thuộc tính.
