@@ -57,13 +57,17 @@ public class Cart {
         return totalCost;
     }
 	public void print() { 
-	        System.out.println("***********************CART***********************");
-	        System.out.println("Ordered Items (" + qtyOrdered + "):");
-	        for (int i = 1; i <= qtyOrdered; i++) {
-	            System.out.println((i + 1) + ". [Title]: " + itemsInCart[i].getTitle() + 
-	                               ", [Cost]: " + itemsInCart[i].getCost()); 
-	        }
-	        System.out.println("Total cost: " + calculateTotalCost());
-	        System.out.println("***************************************************");
-	    }
+		if(qtyOrdered == 0) {
+			System.out.print("The cart is empty\n");
+			return;
+		}
+		System.out.println("***********************CART***********************");
+		System.out.println("Ordered Items (" + qtyOrdered + "):");
+		for (int i = 1; i <= qtyOrdered; i++) {
+			System.out.println("DVD[" + itemsInCart[i].getId() + "]" +". [Title]: " + itemsInCart[i].getTitle() + 
+							   ", [Cost]: " + itemsInCart[i].getCost() + " [Length]: " + itemsInCart[i].getLength() + " [Category]: " + itemsInCart[i].getCategory() + " [Director]: " + itemsInCart[i].getDirector());
+		}
+		System.out.println("Total cost: " + calculateTotalCost());
+		System.out.println("***************************************************");
+	}
 }
