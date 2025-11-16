@@ -9,8 +9,8 @@ public class Aims {
 
         CompactDiscTest compactDiscTest = new CompactDiscTest();
         compactDiscTest.main(args);
-        // CartTest cartTest = new CartTest();
-        // cartTest.main(args);
+        CartTest cartTest = new CartTest();
+        cartTest.main(args);
         
         // StoreTest storeTest = new StoreTest();
         // storeTest.main(args);

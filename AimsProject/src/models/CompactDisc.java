@@ -1,36 +1,19 @@
-// Trong com.hust.kstn.models.CompactDisc.java
 
 package models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompactDisc {
-    private int id;
-    private String title;
-    private String category;
-    private double cost;
-    private String director; 
-
-    private String artist; 
+public class CompactDisc extends Disc {
+    private String artist;
     private List<Track> tracks = new ArrayList<>();
 
-    private static int nbCDs = 0;
-
-    // Constructor
     public CompactDisc(String title, String category, double cost, String director, String artist) {
-        nbCDs++;
-        this.id = nbCDs;
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
-        this.director = director;
+        super(title, category, cost, director, 0);
         this.artist = artist;
     }
 
-    // Getters
-    public int getId() { return id; }
-    public String getTitle() { return title; }
+    public String getArtist() { return artist; }
 
     public void addTrack(Track track) {
         if (tracks.contains(track)) {
@@ -52,21 +35,13 @@ public class CompactDisc {
 
     public int totalLength() {
         int total = 0;
-        for (Track track : tracks) {
-            total += track.getLength();
-        }
+        for (Track track : tracks) total += track.getLength();
         return total;
     }
 
     @Override
     public String toString() {
-        // 
-        return "CD [" + this.id + "]["
-                + this.title + "] ["
-                + this.cost + "]["
-                + this.director + "]["
-                + this.artist + "]"
-                + "Total Length: " + this.totalLength() + "s\n"
-                + "Tracks: " + this.tracks;
+        return "CD [" + getId() + "] [" + getTitle() + "] [" + getCost() + "] [" + getDirector() + "] [" + artist + "] "
+                + "Total Length: " + totalLength() + "s\n" + "Tracks: " + tracks;
     }
 }

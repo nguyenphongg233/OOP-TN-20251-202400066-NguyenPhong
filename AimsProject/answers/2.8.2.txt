@@ -1,0 +1,1 @@
+Do khi kế thừa từ 2 lớp cha sẽ có khả năng bị trùng lặp phương thức 
