@@ -12,8 +12,8 @@ public class Aims {
         CartTest cartTest = new CartTest();
         cartTest.main(args);
         
-        // StoreTest storeTest = new StoreTest();
-        // storeTest.main(args);
+        StoreTest storeTest = new StoreTest();
+        storeTest.main(args);
 
         // Cart cart = new Cart();
 
