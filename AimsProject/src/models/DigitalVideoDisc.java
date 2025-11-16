@@ -55,4 +55,8 @@ public class DigitalVideoDisc {
 		this.length = length;
 		this.id = ++nbDigitalVideoDiscs;
 	}
+	public String toString() {
+		return "DVD[" + this.id + "]" +". [Title]: " + this.title + 
+			   ", [Cost]: " + this.cost + " [Length]: " + this.length + " [Category]: " + this.category + " [Director]: " + this.director;
+	}
 }
